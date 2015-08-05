@@ -7,13 +7,13 @@ controller::controller(int purpose)
     {
         std::cout << "Starting Client";
         this->myClient = new Client(QString(QString("test")));
-        myClient->connectToServer(QString("127.0.0.1"), 60000);
+        myClient->connectToServer(QString("127.0.0.1"), 51000);
         qDebug() << connect(myClient, &Client::gotData, this, &controller::dataReceived);
     }
     else
     {
         std::cout << "Starting Server";
-        this->myServer = new Server(QString("127.0.0.1"), 60000, QString("test"));
+        this->myServer = new Server(QString("127.0.0.1"), 51000, QString("test"));
     }
 }
 

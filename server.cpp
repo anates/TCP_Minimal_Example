@@ -112,11 +112,11 @@ void Server::sendData(QPair<QString, QPair<QString, QVariant> > data)
     out.setVersion(QDataStream::Qt_5_0);
     out << (quint16)0;
     out << send_data;
-    qDebug() << "In-status after read: " << out.status();
+    qDebug() << "Out-status after read: " << out.status();
     Q_ASSERT(out.status() == QDataStream::Ok);
     out.device()->seek(0);
     out << (quint16)(block.size() - sizeof(quint16));
-    qDebug() << "In-status after read: " << out.status();
+    qDebug() << "Out-status after read: " << out.status();
     Q_ASSERT(out.status() == QDataStream::Ok);
     if(Server::clientConnection != NULL)
     {
